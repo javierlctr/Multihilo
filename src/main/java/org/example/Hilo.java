@@ -19,21 +19,16 @@ public class Hilo extends Thread {
 
     @Override
     public void run() {
-        while (true){
                 try {
-                     Thread.sleep(10);
+                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
-                    if (posicion == numeroHilo) {
+                    
                         System.out.println("Hola, soy el hilo " + numeroHilo);
-                        ++posicion;
 
-                        if (posicion <= listadoHilos.size()) {
-                            listadoHilos.get(posicion - 1).interrupt();
+                        if (numeroHilo < listadoHilos.size()) {
+                            listadoHilos.get(numeroHilo).interrupt();
                         }
-                        break;
                     }
-                }
-            }
         }
 
     @Override
